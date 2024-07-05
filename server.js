@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const connectDB = require("./db");
 const dotenv = require("dotenv");
 
@@ -13,7 +14,8 @@ connectDB();
 
 //Middleware to Parse JSON
 
-app.use(express.json());
+app.use(express.json()); //For Parsing application/json
+app.use(cors()); //Enable cors
 app.use("/api", userRoutes);
 
 //Routes
